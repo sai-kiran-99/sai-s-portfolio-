@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../../data';
 import AnimatedSection from '../ui/AnimatedSection';
+import Toast from '../ui/Toast';
+import { sendEmail } from '../../utils/emailService';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,12 +10,73 @@ const Contact: React.FC = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState<{
+    message: string;
+    type: 'success' | 'error' | 'info';
+    isVisible: boolean;
+  }>({
+    message: '',
+    type: 'info',
+    isVisible: false
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const showToast = (message: string, type: 'success' | 'error' | 'info' = 'info') => {
+    setToast({ message, type, isVisible: true });
+  };
+
+  const hideToast = () => {
+    setToast(prev => ({ ...prev, isVisible: false }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can integrate with a form service like Formspree, Netlify Forms, etc.
+    
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      showToast('Please fill in all fields', 'error');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      showToast('Please enter a valid email address', 'error');
+      return;
+    }
+
+    // Message length validation
+    if (formData.message.trim().length < 10) {
+      showToast('Message must be at least 10 characters long', 'error');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      console.log('Submitting form with data:', formData);
+      
+      // Send email using configured service
+      const success = await sendEmail(formData);
+      
+      if (success) {
+        showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        showToast('Failed to send message. Please check your configuration and try again.', 'error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      showToast('Failed to send message. Please try again later.', 'error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,8 +87,15 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-apple-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={hideToast}
+      />
+      <section id="contact" className="section-padding bg-apple-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-apple-gray-600 mb-4">
@@ -122,7 +192,14 @@ const Contact: React.FC = () => {
 
           <AnimatedSection delay={400}>
             <div className="bg-white rounded-2xl p-8 card-shadow">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+                data-netlify="true"
+                name="contact"
+                method="POST"
+              >
+                <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-apple-gray-600 mb-2">
                     Name
@@ -173,9 +250,21 @@ const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-apple-blue text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors duration-200"
+                  disabled={isSubmitting}
+                  className={`w-full px-6 py-4 font-semibold rounded-xl transition-colors duration-200 ${
+                    isSubmitting 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-apple-blue text-white hover:bg-blue-600'
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Sending...</span>
+                    </div>
+                  ) : (
+                    'Send Message'
+                  )}
                 </button>
               </form>
             </div>
@@ -183,6 +272,7 @@ const Contact: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

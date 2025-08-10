@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
             </p>
           </AnimatedSection>
 
-          <AnimatedSection delay={1200}>
+          <AnimatedSection delay={1100}>
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
               <button
                 onClick={scrollToProjects}
@@ -84,6 +84,13 @@ const Hero: React.FC = () => {
               >
                 💬 Get In Touch
               </button>
+              <a
+                href="/Sai_kiran_madala_RESUME___Front_end.pdf"
+                download="Sai_Kiran_Madala_Resume.pdf"
+                className="apple-button-secondary px-10 py-5 text-lg font-semibold flex items-center gap-2 hover:bg-green-50 hover:border-green-300 hover:text-green-600 transition-all duration-300"
+              >
+                📄 Download Resume
+              </a>
             </div>
           </AnimatedSection>
 
