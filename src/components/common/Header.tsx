@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { personalInfo } from '../data';
+import { personalInfo } from '../../data';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);

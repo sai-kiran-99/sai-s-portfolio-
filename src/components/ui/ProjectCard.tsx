@@ -12,13 +12,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="text-6xl opacity-20">💻</div>
         <div className="absolute top-4 right-4">
           <span className={`px-3 py-1 text-sm font-medium rounded-full ${
-            project.status === 'Completed' 
-              ? 'bg-apple-green/10 text-green-700'
-              : project.status === 'In Development'
+            project.featured 
               ? 'bg-apple-blue/10 text-apple-blue'
               : 'bg-apple-gray-200 text-apple-gray-600'
           }`}>
-            {project.status}
+            {project.featured ? 'Featured' : 'Project'}
           </span>
         </div>
       </div>
@@ -35,7 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         <div className="mb-4">
           <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech, index) => (
+            {project.technologies.map((tech, index) => (
               <span
                 key={index}
                 className="px-3 py-1 bg-apple-gray-100 text-apple-gray-600 text-sm rounded-full font-medium"
@@ -49,12 +47,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="mt-auto pt-4">
           <div className="flex items-center justify-between">
             <span className="text-sm text-apple-gray-400 font-medium">
-              {project.date}
+              {project.featured ? 'Featured' : 'Project'}
             </span>
             <div className="flex space-x-3">
-              {project.liveDemo && (
-                
-                  href={project.liveDemo}
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 bg-apple-blue text-white text-sm font-medium rounded-full hover:bg-blue-600 transition-colors duration-200"
@@ -62,9 +60,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   Live Demo
                 </a>
               )}
-              {project.github && (
-                
-                  href={project.github}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 border border-apple-gray-300 text-apple-gray-600 text-sm font-medium rounded-full hover:border-apple-blue hover:text-apple-blue transition-colors duration-200"

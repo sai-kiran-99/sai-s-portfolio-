@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
                 I'm always working on new projects and exploring innovative technologies. 
                 Check out my GitHub for more repositories and contributions.
               </p>
-              
+              <a
                 href="https://github.com/sai-kiran-99"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -56,4 +56,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;p
+export default Projects;

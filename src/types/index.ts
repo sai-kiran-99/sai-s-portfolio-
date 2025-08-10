@@ -11,16 +11,14 @@ export interface PersonalInfo {
 }
 
 export interface Project {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  tech: string[];
-  liveDemo?: string;
-  github?: string;
+  technologies: string[];
   image: string;
-  status: 'Completed' | 'In Development' | 'Planning';
-  date: string;
-  featured?: boolean;
+  githubUrl: string;
+  liveUrl?: string;
+  featured: boolean;
 }
 
 export interface Experience {

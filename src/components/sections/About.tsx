@@ -1,5 +1,4 @@
 import React from 'react';
-import { personalInfo } from '../../data';
 import AnimatedSection from '../ui/AnimatedSection';
 
 const About: React.FC = () => {
