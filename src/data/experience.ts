@@ -7,7 +7,7 @@ export const experience: Experience[] = [
     duration: "Jan 2025 - Present",
     type: "Full-time",
     description: "Working on Graphy product development with focus on creator tools and AI integrations",
-    tech: ["JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS"],
+    tech: ["JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "jsx", "redux", "zustand", "firebase", "mongoDB" ],
     achievements: [
       "Developed AI avatar voice and interactive conversations for creator tools using React and Next.js",
       "Led development of search, chat, and live session modules for the Graphy platform",

@@ -154,10 +154,10 @@ The portfolio is fully responsive and optimized for:
 
 ## 📧 Contact
 
-- **Email**: saikiranmadala@example.com
-- **LinkedIn**: [Sai Kiran Madala](https://linkedin.com/in/saikiranmadala)
+- **Email**: saikiranmadala5555@gmail.com
+- **LinkedIn**: [Sai Kiran Madala](https://www.linkedin.com/in/sai-kiran-madala-8385a61bb/)
 - **GitHub**: [sai-kiran-99](https://github.com/sai-kiran-99)
-- **Website**: [saikiranmadala.dev](https://saikiranmadala.dev)
+- **Website**: [saikiranmadala.dev](https://saikiranmadala.dev) //need to edit
 
 ## 🤝 Contributing
 

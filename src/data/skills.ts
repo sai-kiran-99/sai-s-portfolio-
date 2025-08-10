@@ -19,7 +19,7 @@ export const skills: Skill[] = [
   },
   {
     category: "Developer Tools",
-    technologies: ["Git", "VS Code", "Chrome DevTools", "Jenkins (Basic)", "CI/CD", "Webpack"]
+    technologies: ["Git", "VS Code", "Chrome DevTools", "Jenkins ", "CI/CD", "Webpack"]
   },
   {
     category: "Database & Testing",

@@ -4,8 +4,8 @@ import AnimatedSection from '../ui/AnimatedSection';
 const About: React.FC = () => {
   const stats = [
     { number: '2+', label: 'Years Experience' },
-    { number: '15+', label: 'Projects Completed' },
-    { number: '3', label: 'Companies' },
+    { number: '10+', label: 'Projects Completed' },
+    { number: '2', label: 'Companies' },
     { number: '100%', label: 'Passion Driven' },
   ];
 

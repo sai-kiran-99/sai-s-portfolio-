@@ -12,6 +12,16 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
+    title: "TODO List App",
+    description: "A simple and intuitive TODO list application built with JavaScript. Features include adding, completing, and managing daily tasks with a clean user interface.",
+    technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
+    image: "/images/project5.jpg",
+    githubUrl: "https://github.com/sai-kiran-99/TO-DO-app",
+    liveUrl: "https://sai-kiran-99.github.io/TO-DO-app/",
+    featured: true
+  },
+  {
+    id: "5",
     title: "E-Commerce Platform",
     description: "A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.",
     technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
@@ -50,14 +60,4 @@ export const projects: Project[] = [
     liveUrl: "https://saikiranmadala.dev",
     featured: false
   },
-  {
-    id: "5",
-    title: "TODO List App",
-    description: "A simple and intuitive TODO list application built with JavaScript. Features include adding, completing, and managing daily tasks with a clean user interface.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
-    image: "/images/project5.jpg",
-    githubUrl: "https://github.com/sai-kiran-99/TO-DO-app",
-    liveUrl: "https://sai-kiran-99.github.io/TO-DO-app/",
-    featured: true
-  }
 ];
