@@ -4,7 +4,7 @@ import AnimatedSection from '../ui/AnimatedSection';
 
 const Experience: React.FC = () => {
   return (
-    <section id="experience" className="section-padding bg-white">
+    <section id="experience" className="section-padding">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="text-center mb-16">

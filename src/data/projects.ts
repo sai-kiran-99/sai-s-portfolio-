@@ -49,5 +49,15 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/saikiranmadala/portfolio",
     liveUrl: "https://saikiranmadala.dev",
     featured: false
+  },
+  {
+    id: "5",
+    title: "TODO List App",
+    description: "A simple and intuitive TODO list application built with JavaScript. Features include adding, completing, and managing daily tasks with a clean user interface.",
+    technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
+    image: "/images/project5.jpg",
+    githubUrl: "https://github.com/sai-kiran-99/TO-DO-app",
+    liveUrl: "https://sai-kiran-99.github.io/TO-DO-app/",
+    featured: true
   }
 ];
