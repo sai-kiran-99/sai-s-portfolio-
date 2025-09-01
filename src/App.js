@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react'; // ✅ Add this line
 import Header from './components/common/Header';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
@@ -33,6 +34,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      {process.env.NODE_ENV === 'production' && <Analytics />}
     </div>
   );
 }
