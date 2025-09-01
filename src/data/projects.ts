@@ -10,16 +10,16 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    id: "1",
-    title: "TODO List App",
-    description: "A simple and intuitive TODO list application built with JavaScript. Features include adding, completing, and managing daily tasks with a clean user interface.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
-    image: "/images/project5.jpg",
-    githubUrl: "https://github.com/sai-kiran-99/TO-DO-app",
-    liveUrl: "https://sai-kiran-99.github.io/TO-DO-app/",
-    featured: true
-  },
+  // {
+  //   id: "1",
+  //   title: "TODO List App",
+  //   description: "A simple and intuitive TODO list application built with JavaScript. Features include adding, completing, and managing daily tasks with a clean user interface.",
+  //   technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
+  //   image: "/images/project5.jpg",
+  //   githubUrl: "https://github.com/sai-kiran-99/TO-DO-app",
+  //   liveUrl: "https://sai-kiran-99.github.io/TO-DO-app/",
+  //   featured: true
+  // },
   {
     id: "5",
     title: "E-Commerce Platform",
@@ -30,16 +30,16 @@ export const projects: Project[] = [
     liveUrl: "https://ecommerce-platform.vercel.app",
     featured: true
   },
-  {
-    id: "2",
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
-    image: "/images/project2.jpg",
-    githubUrl: "https://github.com/saikiranmadala/task-manager",
-    liveUrl: "https://task-manager-app.netlify.app",
-    featured: true
-  },
+  // {
+  //   id: "2",
+  //   title: "Task Management App",
+  //   description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+  //   technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
+  //   image: "/images/project2.jpg",
+  //   githubUrl: "https://github.com/saikiranmadala/task-manager",
+  //   liveUrl: "https://task-manager-app.netlify.app",
+  //   featured: true
+  // },
   {
     id: "3",
     title: "Weather Dashboard",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     image: "/images/project4.jpg",
     githubUrl: "https://github.com/saikiranmadala/portfolio",
-    liveUrl: "https://saikiranmadala.dev",
+    liveUrl: "https://sai-s-portfolio-two.vercel.app/",
     featured: false
   },
 ];
