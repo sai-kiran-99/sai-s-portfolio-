@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { personalInfo } from '../../data';
 import AnimatedSection from '../ui/AnimatedSection';
 
@@ -10,6 +10,7 @@ const Hero: React.FC = () => {
   const scrollToContact = () => {
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
   };
+   const [imageError, setImageError] = useState(false);
 
   return (
     <section id="hero" className="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden">
@@ -35,9 +36,19 @@ const Hero: React.FC = () => {
             <div className="mb-12">
               <div className="w-40 h-40 mx-auto mb-8 rounded-full bg-gradient-to-r from-apple-blue via-purple-600 to-apple-blue p-1.5 shadow-2xl shadow-apple-blue/20">
                 <div className="w-full h-full rounded-full bg-white flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-5xl font-bold text-gradient">
-                    {personalInfo.name.split(' ').map(name => name[0]).join('')}
-                  </span>
+                  {!imageError ? (
+                    <img
+                      src="/profile.png"
+                      alt="sai profile pic"
+                      className="w-full h-full rounded-full object-cover"
+                      onError={() => setImageError(true)}
+                      onLoad={() => setImageError(false)}
+                    />
+                  ) : (
+                    <span className="text-5xl font-bold text-gradient">
+                      {personalInfo.name.split(' ').map(name => name[0]).join('')}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
